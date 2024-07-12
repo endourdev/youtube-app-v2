@@ -1,0 +1,33 @@
+{
+  "name": "youtube-app-v2",
+  "version": "0.0.1",
+  "description": "Electron app who display YouTube but with a Discord RPC",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js",
+    "build": "electron-builder"
+  },
+  "build": {
+    "icon": "./src/img/logo.ico",
+    "appId": "tech.endour.youtube",
+    "productName": "Youtube Watcher",
+    "nsis": {
+      "artifactName": "Youtube-Watcher-Setup-${version}-x64.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./src/img/logo.ico",
+      "uninstallerIcon": "./src/img/logo.ico",
+      "deleteAppDataOnUninstall": true
+    }
+  },
+  "author": "Mohamed Ouaouda",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  }
+}
