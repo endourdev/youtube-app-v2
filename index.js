@@ -1,54 +1,37 @@
-const { app, BrowserWindow } = require('electron/main');
-const path = require('node:path');
+// We import all modules here.
+const { app, BrowserWindow } = require("electron");
 const RPC = require("discord-rpc");
 const config = require("./configs/config.json");
 const rpc = new RPC.Client({
     transport: "ipc"
 });
 
+// Main function. He define title and others stuff.
 function createWindow () {
   const win = new BrowserWindow({
-    title: "YouTube",
+    title: "YouTube Browser",
     autoHideMenuBar: true,
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   });
 
-  win.loadURL('https://youtube.com/');
+  win.loadURL("https://youtube.com/");
+
 };
 
+// We create main window here.
 app.whenReady().then(() => {
-  createWindow();
+  createWindow()
 
   app.on('activate', () => {
-    rpc.on("ready", () => {
-        // We set button.
-        rpc.setActivity({
-            buttons: [
-                { label : `Rejoignez le support`, url: `${config.discord}`}
-            ],
-    
-            // We set all details for your rpc.
-            details: `Regarde des vidéos`,
-            startTimestamp: new Date(),
-            largeImageKey: "youtube",
-            largeImageText: "Le divertissement est un bien essentiel."
-                
-                
-        });
-    });
-    // Connect to Discord with discord-rpc module
-    rpc.login({ 
-        clientId: config.clientId,
-    });
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      createWindow()
     };
   });
 });
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit();
+    app.quit()
   };
 });

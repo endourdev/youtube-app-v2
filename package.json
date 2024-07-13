@@ -1,9 +1,10 @@
 {
-  "name": "youtube-app-v2",
+  "name": "youtube",
   "version": "0.0.1",
   "description": "Electron app who display YouTube but with a Discord RPC",
   "main": "index.js",
   "scripts": {
+    "first": "electron index.js",
     "start": "electron-forge start",
     "build": "electron-builder",
     "package": "electron-forge package",
