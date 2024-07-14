@@ -31,32 +31,3 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
-
-rpc.on('ready', () => {
-  console.log('Discord RPC connected');
-  rpc.setActivity({
-    details: 'Browsing YouTube',
-    startTimestamp: new Date(),
-    largeImageKey: 'youtube_icon',
-    largeImageText: 'YouTube',
-    smallImageKey: 'electron_icon',
-    smallImageText: 'Electron App'
-  });
-});
-
-rpc.on('error', (error) => {
-  console.error('Discord RPC error:', error);
-  console.log('Error details:', error.message);
-  console.log('Stack trace:', error.stack);
-});
-
-console.log('Attempting to connect to Discord with client ID:', config.client);
-rpc.login({ clientId: "1261476866586447922" })
-  .then(() => {
-    console.log('Successfully connected to Discord');
-  })
-  .catch((error) => {
-    console.error('Failed to connect to Discord:', error);
-    console.log('Error details:', error.message);
-    console.log('Stack trace:', error.stack);
-  });
