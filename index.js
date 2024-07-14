@@ -12,7 +12,6 @@ function createWindow() {
     width: 1280,
     height: 720,
   });
-
   win.loadURL("https://youtube.com/");
 }
 
@@ -29,5 +28,5 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
-  }
+  };
 });
